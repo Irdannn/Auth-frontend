@@ -9,19 +9,12 @@
                     <div class="panel-body p-3">
                         <form [formGroup]="signUpForm">
                             <div class="form-group pt-3">
-                                <div class="input-field" [class.error]="signUpForm.controls['username'].dirty && signUpForm.hasError('required', 'username')">
+                                <div class="input-field" [class.error]="signUpForm.controls['name'].dirty && signUpForm.hasError('required', 'name')">
                                     <span class="fa fa-user p-2"></span>
-                                    <input formControlName="username" type="text" placeholder="Username">
+                                    <input formControlName="name" type="text" placeholder="name">
                                 </div>
                             </div>
-                            <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required', 'username')" class="text-danger">*Mohon isi Username</small>
-                            <div class="form-group pt-3">
-                                <div class="input-field" [class.error]="signUpForm.controls['namalengkap'].dirty && signUpForm.hasError('required', 'namalengkap')">
-                                    <span class="fa fa-user p-2"></span>
-                                    <input formControlName="namalengkap" type="text" placeholder="Nama Lengkap">
-                                </div>
-                            </div>
-                            <small class="text-danger" *ngIf="signUpForm.controls['namalengkap'].dirty && signUpForm.hasError('required', 'namalengkap')">*Mohon Isi Nama Lengkap</small>
+                            <small *ngIf="signUpForm.controls['name'].dirty && signUpForm.hasError('required', 'name')" class="text-danger">*Mohon isi Name</small>
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <div><span class="fa fa-user p-2"></span> Peran :
@@ -40,9 +33,9 @@
                                                 </label>
                                             </div>
                                             <div class="form-check">  
-                                                <input formControlName="role" class="form-check-input" type="radio" name="role" value="staff" id="staff">
+                                                <input formControlName="role" class="form-check-input" type="radio" name="role" value="Admin" id="admin">
                                                 <label class="form-check-label" for="role">
-                                                    Staff
+                                                    Admin
                                                 </label>
                                             </div>
                                         </div>

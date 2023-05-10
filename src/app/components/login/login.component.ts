@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
@@ -47,13 +47,13 @@ export class LoginComponent implements OnInit{
         next:(res)=>{  
           console.log(res.message);        
           this.loginForm.reset();
-          this.auth.storeToken(res.accessToken);
-          this.auth.storeRefreshToken(res.refreshToken);
+          this.auth.storeToken(res.accessToken);//this
+          this.auth.storeRefreshToken(res.refreshToken);//this
           let tokenPayload = this.auth.decodedToken();
-          this.userStore.setFullNameForStore(tokenPayload.unique_name);
-          this.userStore.setRoleForStore(tokenPayload.role);
+          //this.userStore.setFullNameForStore(tokenPayload.name);
+          //this.userStore.setRoleForStore(tokenPayload.role);
           this.toast.success({detail: "SUCCESS", summary:res.message, duration: 5000});
-          this.router.navigate(['dashboard'])
+          this.router.navigate(['profile'])
         },
         error:(err)=>{
           this.toast.error({detail: "ERROR", summary:"Something went wrong!", duration: 5000});
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit{
       console.log("form is not valid")
       // throw the error using toaster and with required fields
       ValidateForm.validateAllformsFields(this.loginForm);
-      alert("your form is invalid")
+      this.toast.error({detail: "ERROR", summary:"Mohon Isi Email dan Password", duration: 5000});
 
     }
   }

@@ -27,8 +27,8 @@ export class AuthService {
     this.router.navigate(['login'])
   }
 
-  storeToken(tokenValue: string){
-    localStorage.setItem('token', tokenValue)
+  storeToken(token: string){
+    localStorage.setItem('token', token)
   }
 
   storeRefreshToken(tokenValue: string) {
@@ -55,7 +55,7 @@ export class AuthService {
 
   getfullNameFromToken(): any{
     if(this.userPayLoad)
-    return this.userPayLoad.unique_name;
+    return this.userPayLoad.name;
   }
 
   getRoleFromToken(){

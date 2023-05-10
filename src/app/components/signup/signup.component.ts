@@ -6,11 +6,11 @@ import ValidateForm from 'src/app/helpers/validateform';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-signups',
-  templateUrl: './signups.component.html',
-  styleUrls: ['./signups.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class SignupsComponent implements OnInit {
+export class SignupComponent implements OnInit {
   type: string = "password";
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
@@ -24,8 +24,7 @@ export class SignupsComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      username: ['', Validators.required],
-      namalengkap: ['', Validators.required],
+      name: ['', Validators.required],
       role: [''],
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -57,7 +56,7 @@ export class SignupsComponent implements OnInit {
       console.log("form is not valid")
       // throw the error using toaster and with required fields
       ValidateForm.validateAllformsFields(this.signUpForm);
-      alert("your form is invalid")
+      this.toast.error({detail: "ERROR", summary:"Mohon Isi Semuanya", duration: 5000});
     }
   }
 }
