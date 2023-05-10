@@ -1,0 +1,83 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Daftar</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="signUpForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['username'].dirty && signUpForm.hasError('required', 'username')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="username" type="text" placeholder="Username">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required', 'username')" class="text-danger">*Mohon isi Username</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['namalengkap'].dirty && signUpForm.hasError('required', 'namalengkap')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="namalengkap" type="text" placeholder="Nama Lengkap">
+                                </div>
+                            </div>
+                            <small class="text-danger" *ngIf="signUpForm.controls['namalengkap'].dirty && signUpForm.hasError('required', 'namalengkap')">*Mohon Isi Nama Lengkap</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <div><span class="fa fa-user p-2"></span> Peran :
+                                    <br>
+                                        <div>
+                                            <div class="form-check">
+                                                <input formControlName="role" class="form-check-input" type="radio" name="role" value="guru" id="guru">
+                                                <label class="form-check-label" for="role">
+                                                    Guru
+                                                </label>
+                                            </div> 
+                                            <div class="form-check">  
+                                                <input formControlName="role" class="form-check-input" type="radio" name="role" value="siswa" id="siswa">
+                                                <label class="form-check-label" for="role">
+                                                    Siswa
+                                                </label>
+                                            </div>
+                                            <div class="form-check">  
+                                                <input formControlName="role" class="form-check-input" type="radio" name="role" value="staff" id="staff">
+                                                <label class="form-check-label" for="role">
+                                                    Staff
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="email" type="text" placeholder="Email">
+                                </div>
+                            </div>
+                            <small class="text-danger" *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">*Mohon isi Email</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Password">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div>
+                            <small class="text-danger" *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">*Password is required</small>
+                            <button (click)="onSignUp()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button>
+                            <div class="text-center pt-4 text-muted">Already Have Account
+                                <a id="forget" routerLink="/login">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <div class="mx-3 my-2 py-2 bordert">
+                        <div class="text-center py-3">
+                            <a href="https://www.facebook.com" target="_blank" class="px-2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/600px-Facebook_f_logo_%282019%29.svg.png"></a>
+                            <a href="https://www.google.com" target="_blank" class="px-2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"></a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
