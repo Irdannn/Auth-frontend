@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit{
           let tokenPayload = this.auth.decodedToken();
           //this.userStore.setFullNameForStore(tokenPayload.name);
           //this.userStore.setRoleForStore(tokenPayload.role);
-          this.toast.success({detail: "SUCCESS", summary:res.message, duration: 5000});
+          this.toast.success({detail: "SUCCESS", summary:"Assalamualaikum", duration: 5000});
           this.router.navigate(['profile'])
         },
         error:(err)=>{
