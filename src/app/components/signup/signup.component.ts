@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
       name: ['', Validators.required],
-      role: [''],
+      role: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
@@ -44,7 +44,7 @@ export class SignupComponent implements OnInit {
       this.auth.signUp(this.signUpForm.value)
       .subscribe({
         next:(res=>{
-          this.toast.success({detail: "SUCCESS", summary:res.message, duration: 5000});
+          this.toast.success({detail: "SUCCESS", summary:"Pendaftaran Berhasil", duration: 5000});
           this.signUpForm.reset();
           this.router.navigate(['login'])
         }),

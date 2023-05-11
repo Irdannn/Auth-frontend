@@ -10,6 +10,9 @@ import { UserStoreService } from 'src/app/services/user-store.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  menuOpen = false;
+  
   public users:any = [];
   public role!:string;
 
@@ -38,5 +41,9 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.auth.signOut();
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 }
