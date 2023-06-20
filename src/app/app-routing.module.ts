@@ -6,6 +6,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'dashboard', component: DashboardAdminComponent, canActivate:[AuthGuard]},
   {path: 'header', component: SidebarComponents, canActivate:[AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]}
+  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: 'editprofile/{id}', component: EditProfileComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

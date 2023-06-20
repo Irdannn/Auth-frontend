@@ -20,6 +20,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-
     HeaderComponent,
     FooterComponent,
     DashboardAdminComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
