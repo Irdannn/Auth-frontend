@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -46,7 +46,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     MatSidenavModule,
     MatGridListModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

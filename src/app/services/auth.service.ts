@@ -67,7 +67,8 @@ export class AuthService {
     return this.http.post<any>(`${this.baseurl}refresh`, tokenApi)
   }
 
-  // hideshownav(): boolean{
-
-  // }
+  getIdFromToken(): any{
+    if(this.userPayLoad)
+    return this.userPayLoad.id;
+  }
 }

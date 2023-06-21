@@ -1,12 +1,13 @@
-<div class="container">
+<app-sidebar>
+  <div class="container p-5">
     <h1>Edit Profile</h1>
-    <form [formGroup]="editProfileForm">
+    <form (ngSubmit)="updateProfile()">
         <div class="row">
           <div class="col-25">
             <label for="name">Nama Lengkap</label>
           </div>
           <div class="col-75">
-            <input type="text" id="name" name="name" placeholder="Nama Lengkap ..."  formControlName="name" required>
+            <input type="text" id="name" name="name" placeholder="Nama Lengkap ..." [(ngModel)]="user.name" required>
           </div>
         </div>
 
@@ -16,7 +17,7 @@
             <label for="alamat">Alamat</label>
           </div>
           <div class="col-75">
-            <textarea  type="text" id="alamat" name="alamat" placeholder="alamat dari barang"  formControlName="alamat"></textarea>
+            <textarea  type="text" id="alamat" name="alamat" placeholder="alamat dari barang"  [(ngModel)]="user.alamat"></textarea>
           </div>
         </div>
 
@@ -25,7 +26,7 @@
             <label for="tempatLahir">Tempat Lahir</label>
           </div>
           <div class="col-75">
-            <input type="text" id="tempatLahir" name="tempatLahir"  formControlName="tempatLahir" required>
+            <input type="text" id="tempatLahir" name="tempatLahir"  [(ngModel)]="user.tempatLahir" required>
           </div>
         </div>
 
@@ -34,7 +35,7 @@
               <label for="tanggalLahir"> Tanggal Lahir</label>
             </div>
             <div class="col-75">
-              <input type="date" name="tanggalLahir" id="tanggalLahir" formControlName="tanggalLahir" required>
+              <input type="date" name="tanggalLahir" id="tanggalLahir" [(ngModel)]="user.tanggalLahir" required>
             </div>
           </div>
 
@@ -43,7 +44,7 @@
             <label for="pendidikanTerakhir">Pendidikan Terakhir</label>
           </div>
           <div class="col-75">
-            <input type="text" id="pendidikanTerakhir" name="pendidikanTerakhir"  formControlName="pendidikanTerakhir">
+            <input type="text" id="pendidikanTerakhir" name="pendidikanTerakhir" [(ngModel)]="user.pendidikanTerakhir">
           </div>
         </div>
 
@@ -52,7 +53,7 @@
               <label for="pekerjaan">Pekerjaan Terakhir</label>
             </div>
             <div class="col-75">
-              <input type="text" id="pekerjaan" name="pekerjaan"  formControlName="pekerjaan">
+              <input type="text" id="pekerjaan" name="pekerjaan"  [(ngModel)]="user.pekerjaan">
             </div>
         </div>
 
@@ -61,7 +62,7 @@
               <label for="penghasilan">Penghasilan Terakhir</label>
             </div>
             <div class="col-75">
-              <input type="number" id="penghasilan" name="penghasilan"  formControlName="penghasilan">
+              <input type="number" id="penghasilan" name="penghasilan"  [(ngModel)]="user.penghasilan">
             </div>
           </div>
         
@@ -70,7 +71,7 @@
               <label for="noHp">Nomor HP</label>
             </div>
             <div class="col-75">
-              <input type="text" id="noHp" name="noHp"  formControlName="noHp">
+              <input type="text" id="noHp" name="noHp"  [(ngModel)]="user.noHp">
             </div>
         </div>
 
@@ -79,15 +80,16 @@
               <label for="email">Email</label>
             </div>
             <div class="col-75">
-              <input type="text" id="email" name="email"  formControlName="email">
+              <input type="text" id="email" name="email"  [(ngModel)]="user.email">
             </div>
         </div>
 
           <br>
         <div class="row">
-          <button type="submit" (click)="onEditProfile()">Simpan </button>
+          <button type="submit">Simpan </button>
           <br>
           <br>      
         </div>
       </form>
 </div>
+</app-sidebar>

@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   public users:any = [];
   public role!:string;
 
+  public id:string = "";
   public fullName:string = "";
   constructor(private api : ApiService, private auth: AuthService, private userStore: UserStoreService, private router: Router) { }
 
@@ -36,6 +37,12 @@ export class HeaderComponent implements OnInit {
     .subscribe(val=>{
       const roleRoleFromToken = this.auth.getRoleFromToken();
       this.role = val || roleRoleFromToken
+    });
+
+    this.userStore.getIDFromStore()
+    .subscribe(val=>{
+      let idFromToken = this.auth.getIdFromToken()
+      this.id=val || idFromToken;
     })
   }
 

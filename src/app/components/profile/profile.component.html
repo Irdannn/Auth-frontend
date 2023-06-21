@@ -1,18 +1,11 @@
-<app-header class="sticky"></app-header>
-<div class="overlay"></div>
-<div class="wrapper">
-    <div class="box header">
-        
-    </div>
-    <div class="box sidebar">
-        <app-sidebar></app-sidebar>
-    </div>
+
+        <app-sidebar>
     <div class="box content profile-content">
             <div class="profile-head">
                 <div class="detailuser">
                     <h1>{{fullName}}</h1>
                     <p>{{user.bio}}</p>
-                    <button mat-button (click)="openDialog()">Edit Profile</button>
+                    <button type="button" [routerLink]="['editprofile', id]">Edit Profile</button>
                 </div>
                 <div class="fotoprofil">
                     <img src="assets/img/ird.png">
@@ -29,9 +22,11 @@
             </div>
             <div class="card detailprofile">
                 <h4>Detail Tentang Orangtua</h4>
-                <p>Nama : John Doe</p>
-                <p>Profesi : Software Engeneer</p>
-                <p>TTL : 16 Oktober 1996</p>
+                <p>Nama : {{user.name}}</p>
+                <p>Alamat : {{user.alamat}}</p>
+                <p>Profesi : {{user.pekerjaan}}</p>
+                <p>TTL : {{user.tempatLahir}}, {{user.tanggalLahir}}</p>
+                <p>No HP : {{user.noHp}}</p>
             </div>
             <div class="card tagihan">
                 <h4>Tagihan</h4>
@@ -42,7 +37,4 @@
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
             </div>
     </div>
-    <div class="box footer">
-        <app-footer></app-footer>
-    </div>
-</div>
+</app-sidebar>
