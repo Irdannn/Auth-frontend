@@ -1,4 +1,4 @@
-export class Barang{
+export class UserProfile{
     id : number;
     id_user:number;
     name: string;

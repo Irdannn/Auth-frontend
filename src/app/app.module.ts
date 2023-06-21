@@ -11,6 +11,7 @@ import { NgToastModule  } from 'ng-angular-popup';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -44,7 +45,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     MatToolbarModule,
     MatSidenavModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
