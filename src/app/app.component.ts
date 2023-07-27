@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-title = '2.0 Effs'; 
-
-
+  title = '2.0 Effs';
+   
 }

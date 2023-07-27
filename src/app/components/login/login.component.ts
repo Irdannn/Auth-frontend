@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit{
   onLogin(){
     if(this.loginForm.valid) {
       // send the obj to database
-      console.log(this.loginForm.value)
+      // console.log(this.loginForm.value)
       this.auth.login(this.loginForm.value)
       .subscribe({
         next:(res)=>{  
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit{
           //this.userStore.setFullNameForStore(tokenPayload.name);
           //this.userStore.setRoleForStore(tokenPayload.role);
           this.toast.success({detail: "SUCCESS", summary:"Assalamualaikum", duration: 5000});
-          this.router.navigate(['profile'])
+          this.router.navigate(['dashboard'])
         },
         error:(err)=>{
           this.toast.error({detail: "ERROR", summary:"Something went wrong!", duration: 5000});

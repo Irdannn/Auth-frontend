@@ -1,6 +1,7 @@
 export class UserProfile{
     id : number;
-    id_user:number;
+    user_id:number;
+    username: string;
     name: string;
     alamat: string;
     tempatLahir: string;
@@ -15,7 +16,8 @@ export class UserProfile{
 
     constructor(){
         this.id= 0;
-        this.id_user=0;
+        this.user_id=0;
+        this.username="";
         this.name="";
         this.alamat="";
         this.tanggalLahir="dd-MM-yyyy";

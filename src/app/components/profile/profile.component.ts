@@ -36,10 +36,10 @@ export class ProfileComponent implements OnInit {
       this.users = res;
     });
 
-    this.api.getUserProfile(this.id)
-    .subscribe(res=>{
-      this.users = res;
-    });
+    // this.api.getUserProfile(this.id)
+    // .subscribe(res=>{
+    //   this.users = res;
+    // });
 
     this.userStore.getIDFromStore()
     .subscribe(val=>{
@@ -58,6 +58,7 @@ export class ProfileComponent implements OnInit {
       const roleRoleFromToken = this.auth.getRoleFromToken();
       this.role = val || roleRoleFromToken
     });
+
     this.route.paramMap.subscribe({
       next: (params) => {
         const id = params.get('id');

@@ -10,6 +10,7 @@ import { TokenApiModel } from '../models/token-api.model';
 export class AuthService {
 
   private baseurl:string = "http://localhost:8000/api/auth/";
+  private  userurl:string = "http://localhost:8000/api/user/"
   private userPayLoad:any;
   constructor(private http : HttpClient, private router: Router) { 
     this.userPayLoad = this.decodedToken();
@@ -20,8 +21,9 @@ export class AuthService {
   }
 
   login(loginObj:any) {
-    return this.http.post<any>(`${this.baseurl}login`, loginObj)
+    return this.http.post<any>(`${this.baseurl}login`, loginObj);
   }
+
   signOut() {
     localStorage.clear();
     this.router.navigate(['login'])
@@ -61,6 +63,11 @@ export class AuthService {
   getRoleFromToken(){
     if(this.userPayLoad)
     return this.userPayLoad.role;
+  }
+
+  getUsernameFromToken(){
+    if(this.userPayLoad)
+    return this.userPayLoad.username;
   }
 
   renewToken(tokenApi : TokenApiModel){

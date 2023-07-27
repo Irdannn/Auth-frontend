@@ -17,8 +17,13 @@ export class HeaderComponent implements OnInit {
   public role!:string;
 
   public id:string = "";
+  public username:string = "";
   public fullName:string = "";
-  constructor(private api : ApiService, private auth: AuthService, private userStore: UserStoreService, private router: Router) { }
+  constructor(
+    private api : ApiService, 
+    private auth: AuthService, 
+    private userStore: UserStoreService, 
+    private router: Router) { }
 
 
   ngOnInit() {
@@ -43,6 +48,12 @@ export class HeaderComponent implements OnInit {
     .subscribe(val=>{
       let idFromToken = this.auth.getIdFromToken()
       this.id=val || idFromToken;
+    })
+
+    this.userStore.getuserNameFromStore()
+    .subscribe(val=>{
+      let usernameFromToken = this.auth.getUsernameFromToken()
+      this.username=val || usernameFromToken;
     })
   }
 

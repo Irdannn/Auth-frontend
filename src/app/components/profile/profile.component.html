@@ -5,7 +5,7 @@
                 <div class="detailuser">
                     <h1>{{fullName}}</h1>
                     <p>{{user.bio}}</p>
-                    <button type="button" [routerLink]="['editprofile', id]">Edit Profile</button>
+                    <button type="button" [routerLink]="['/editprofile', id]">Edit Profile</button>
                 </div>
                 <div class="fotoprofil">
                     <img src="assets/img/ird.png">
@@ -22,11 +22,11 @@
             </div>
             <div class="card detailprofile">
                 <h4>Detail Tentang Orangtua</h4>
-                <p>Nama : {{user.name}}</p>
-                <p>Alamat : {{user.alamat}}</p>
+                <p>Nama: {{user.name}}</p>
+                <p>Alamat  : {{user.alamat}}</p>
                 <p>Profesi : {{user.pekerjaan}}</p>
-                <p>TTL : {{user.tempatLahir}}, {{user.tanggalLahir}}</p>
-                <p>No HP : {{user.noHp}}</p>
+                <p>TTL     : {{user.tempatLahir}}, {{user.tanggalLahir}}</p>
+                <p>No HP   : {{user.noHp}}</p>
             </div>
             <div class="card tagihan">
                 <h4>Tagihan</h4>

@@ -15,7 +15,9 @@ import { UserStoreService } from 'src/app/services/user-store.service';
 export class EditProfileComponent implements OnInit {
   user:UserProfile  = new UserProfile();
   editProfileForm!: FormGroup;
+
   public id:string = "";
+  public username:string = "";
 
   constructor(
     private route : ActivatedRoute,
@@ -52,7 +54,7 @@ export class EditProfileComponent implements OnInit {
     this.api.updateUser(this.user.id, this.user)
     .subscribe({
       next: () => {
-        this.router.navigate(['profile'])
+        this.router.navigate(['profile', this.id, this.username])
         this.toast.success({detail: "BERHASIL", summary:"Barang berhasil dirubah", duration: 5000});
       },
       error:()=> {

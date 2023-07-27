@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import ValidateForm from 'src/app/helpers/validateform';
@@ -24,6 +24,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
+      username: ['', Validators.required],
       name: ['', Validators.required],
       role: ['', Validators.required],
       email: ['', Validators.required],
@@ -39,8 +40,6 @@ export class SignupComponent implements OnInit {
 
   onSignUp(){
     if(this.signUpForm.valid) {
-      // send the obj to database
-      //console.log(this.signUpForm.value)
       this.auth.signUp(this.signUpForm.value)
       .subscribe({
         next:(res=>{
@@ -53,10 +52,9 @@ export class SignupComponent implements OnInit {
         })
       })
     } else {
-      console.log("form is not valid")
-      // throw the error using toaster and with required fields
       ValidateForm.validateAllformsFields(this.signUpForm);
       this.toast.error({detail: "ERROR", summary:"Mohon Isi Semuanya", duration: 5000});
     }
   }
+
 }
