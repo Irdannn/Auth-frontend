@@ -43,15 +43,15 @@ export class EditProfileComponent implements OnInit {
         }
       }
     });
-    this.userStore.getUUIDFromStore()
+    this.userStore.getIDFromStore()
     .subscribe(val=>{
-      let uuidFromToken = this.auth.getUUIdFromToken()
+      let uuidFromToken = this.auth.getIDFromToken()
       this.uuid=val || uuidFromToken;
     });
   }
 
   updateProfile(){
-    this.api.updateUser(this.user.uuid, this.user)
+    this.api.updateUser(this.user.id, this.user)
     .subscribe({
       next: () => {
         this.router.navigate(['profile', this.uuid, this.username])

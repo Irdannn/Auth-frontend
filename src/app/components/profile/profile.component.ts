@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   public users:any = [];
   listUser: any[] = [];
   public role!:string;
-  public uuid:string = "";
+  public id:string = "";
   user:UserProfile  = new UserProfile();
 
   public fullName:string = "";
@@ -42,10 +42,10 @@ export class ProfileComponent implements OnInit {
     //   this.users = res;
     // });
 
-    this.userStore.getUUIDFromStore()
+    this.userStore.getIDFromStore()
     .subscribe(val=>{
-      let uuidFromToken = this.auth.getUUIdFromToken()
-      this.uuid=val || uuidFromToken;
+      let idFromToken = this.auth.getIDFromToken()
+      this.id=val || idFromToken;
     });
 
     this.userStore.getFullNameFromStore()

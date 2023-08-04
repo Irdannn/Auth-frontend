@@ -1,6 +1,6 @@
 export class UserProfile{
-    uuid : number;
-    user_uuid:number;
+    id : number;
+    user_id:number;
     username: string;
     name: string;
     alamat: string;
@@ -15,8 +15,8 @@ export class UserProfile{
     bio: string;
 
     constructor(){
-        this.uuid= 0;
-        this.user_uuid=0;
+        this.id= 0;
+        this.user_id=0;
         this.username="";
         this.name="";
         this.alamat="";

@@ -74,8 +74,8 @@ export class AuthService {
     return this.http.post<any>(`${this.baseurl}refresh`, tokenApi)
   }
 
-  getUUIdFromToken(): any{
+  getIDFromToken(): any{
     if(this.userPayLoad)
-    return this.userPayLoad.uuid;
+    return this.userPayLoad.id;
   }
 }
