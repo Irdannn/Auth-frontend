@@ -16,7 +16,7 @@ export class EditProfileComponent implements OnInit {
   user:UserProfile  = new UserProfile();
   editProfileForm!: FormGroup;
 
-  public id:string = "";
+  public uuid:string = "";
   public username:string = "";
 
   constructor(
@@ -32,9 +32,9 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(){
     this.route.paramMap.subscribe({
       next: (params) => {
-        const id = params.get('id');
-        if (id) {
-          this.api.getUserProfile(id)
+        const uuid = params.get('uuid');
+        if (uuid) {
+          this.api.getUserProfile(uuid)
           .subscribe({
             next: (response) => {
               this.user = response;
@@ -43,18 +43,18 @@ export class EditProfileComponent implements OnInit {
         }
       }
     });
-    this.userStore.getIDFromStore()
+    this.userStore.getUUIDFromStore()
     .subscribe(val=>{
-      let idFromToken = this.auth.getIdFromToken()
-      this.id=val || idFromToken;
+      let uuidFromToken = this.auth.getUUIdFromToken()
+      this.uuid=val || uuidFromToken;
     });
   }
 
   updateProfile(){
-    this.api.updateUser(this.user.id, this.user)
+    this.api.updateUser(this.user.uuid, this.user)
     .subscribe({
       next: () => {
-        this.router.navigate(['profile', this.id, this.username])
+        this.router.navigate(['profile', this.uuid, this.username])
         this.toast.success({detail: "BERHASIL", summary:"Barang berhasil dirubah", duration: 5000});
       },
       error:()=> {

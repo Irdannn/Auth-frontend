@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { UserProfile } from 'src/app/models/userProfile';
+import { AvatarComponent } from '../avatar/avatar.component';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
   public users:any = [];
   listUser: any[] = [];
   public role!:string;
-  public id:string = "";
+  public uuid:string = "";
   user:UserProfile  = new UserProfile();
 
   public fullName:string = "";
@@ -41,10 +42,10 @@ export class ProfileComponent implements OnInit {
     //   this.users = res;
     // });
 
-    this.userStore.getIDFromStore()
+    this.userStore.getUUIDFromStore()
     .subscribe(val=>{
-      let idFromToken = this.auth.getIdFromToken()
-      this.id=val || idFromToken;
+      let uuidFromToken = this.auth.getUUIdFromToken()
+      this.uuid=val || uuidFromToken;
     });
 
     this.userStore.getFullNameFromStore()
@@ -73,11 +74,4 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
-  // openDialog(id:number) {
-  //   const dialogRef = this.dialog.open(EditProfileComponent);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
 }

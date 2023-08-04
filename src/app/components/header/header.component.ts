@@ -16,9 +16,9 @@ export class HeaderComponent implements OnInit {
   public users:any = [];
   public role!:string;
 
-  public id:string = "";
-  public username:string = "";
+  public uuid:string = "";
   public fullName:string = "";
+
   constructor(
     private api : ApiService, 
     private auth: AuthService, 
@@ -44,16 +44,10 @@ export class HeaderComponent implements OnInit {
       this.role = val || roleRoleFromToken
     });
 
-    this.userStore.getIDFromStore()
+    this.userStore.getUUIDFromStore()
     .subscribe(val=>{
-      let idFromToken = this.auth.getIdFromToken()
-      this.id=val || idFromToken;
-    })
-
-    this.userStore.getuserNameFromStore()
-    .subscribe(val=>{
-      let usernameFromToken = this.auth.getUsernameFromToken()
-      this.username=val || usernameFromToken;
+      let uuidFromToken = this.auth.getUUIdFromToken()
+      this.uuid=val || uuidFromToken;
     })
   }
 

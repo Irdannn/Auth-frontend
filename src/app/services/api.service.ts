@@ -19,8 +19,8 @@ export class ApiService {
     return this.http.get<any>(`${this.userUrl}show/` + id);
   }
 
-  updateUser(id: number, formData:any): Observable<UserProfile>{
-    return this.http.put<UserProfile>(`${this.userUrl}update/`+ id, formData);
+  updateUser(uuid: number, formData:any): Observable<UserProfile>{
+    return this.http.put<UserProfile>(`${this.userUrl}update/`+ uuid, formData);
   }
 
   getAllUser(){
