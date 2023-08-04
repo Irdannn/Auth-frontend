@@ -12,6 +12,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -22,6 +23,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     FooterComponent,
     DashboardAdminComponent,
     EditProfileComponent,
+    AvatarComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     MatGridListModule,
     MatMenuModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

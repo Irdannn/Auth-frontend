@@ -26,9 +26,9 @@
     color: #444;
 }
 
-.fotoprofil img {
+.fotoprofil img{
     width: 15vw;
-    height: 15vw;
+    /* height: 15vw; */
 }
 
 .profile-head {
