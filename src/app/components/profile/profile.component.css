@@ -26,9 +26,50 @@
     color: #444;
 }
 
-.fotoprofil img {
+.fotoprofil {
+    position: relative;
+    cursor: pointer;
+}
+
+img {
     width: 15vw;
     height: 15vw;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 30px;
+}
+
+.overlayProfile {
+    display: flex;
+    /* background-image: url(/assets/img/user.png);
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; */
+    background-color: #444;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    z-index: 0;
+    color: white;
+    font-weight: 500;
+    font-size: 1.3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlayProfile:hover {
+    /* z-index: 3; */
+    opacity: 0.9;
+}
+
+img:hover {
+    /* z-index: 0; */
+    opacity: 0.2;
 }
 
 .profile-head {
@@ -38,8 +79,10 @@
     width: 90vw;
     grid-area: profile-head;
     margin-top: 20px;
+    height: 40vh;
 }
 
 .detailuser {
     justify-content: flex-start;
 }
+

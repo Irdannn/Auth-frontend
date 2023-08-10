@@ -1,7 +1,7 @@
 <app-sidebar>
   <div class="container p-5">
     <h1>Edit Profile</h1>
-    <form (ngSubmit)="updateProfile()">
+    <form>
         <div class="row">
           <div class="col-25">
             <label for="name">Nama Lengkap</label>
@@ -11,6 +11,14 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-25">
+            <label for="bio">Bio</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="bio" name="bio" placeholder="Tuliskan Tentang Mu" [(ngModel)]="user.bio" required>
+          </div>
+        </div>
         
         <div class="row">
           <div class="col-25">
@@ -86,7 +94,8 @@
 
           <br>
         <div class="row">
-          <button type="submit">Simpan </button>
+          <button class="half-button" type="submit" (click)="onSubmit()">Simpan </button>
+          <button class="half-button" (click)="goBack()"> Batal </button>
           <br>
           <br>      
         </div>

@@ -22,6 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     FooterComponent,
     DashboardAdminComponent,
     EditProfileComponent,
+    AvatarComponent,
   ],
   imports: [
     BrowserModule,

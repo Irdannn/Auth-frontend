@@ -3,13 +3,18 @@
     <div class="box content profile-content">
             <div class="profile-head">
                 <div class="detailuser">
-                    <h1>{{fullName}}</h1>
+                    <h1>{{user.name}}</h1>
                     <p>{{user.bio}}</p>
                     <button type="button" [routerLink]="['/editprofile', id]">Edit Profile</button>
                 </div>
-                <div class="fotoprofil">
-                    <img src="assets/img/ird.png">
+                <div class="fotoprofil" [routerLink]="['/avatar', id]">
+                    <img src="http://localhost:8000/api/foto/show/{{avatar}}/avatar">
+                    <div class="overlayProfile">Ganti Profile</div>
                 </div>
+                <!-- <div class="fotoprofil">
+                    <img class="profile-picture" src="assets/img/ird.png" alt="Profile Picture">
+                    <div class="overlayProfile"></div>
+                </div> -->
             </div>
         
             <div class="card namaanak">

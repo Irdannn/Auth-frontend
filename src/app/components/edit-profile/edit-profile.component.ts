@@ -6,6 +6,7 @@ import { UserProfile } from 'src/app/models/userProfile';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-profile',
@@ -26,6 +27,7 @@ export class EditProfileComponent implements OnInit {
     private router : Router,
     private userStore: UserStoreService,
     private auth: AuthService,
+    private location : Location
     ) { 
   }
 
@@ -50,11 +52,11 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
-  updateProfile(){
+  onSubmit(){
     this.api.updateUser(this.user.id, this.user)
     .subscribe({
       next: () => {
-        this.router.navigate(['profile', this.id, this.username])
+        this.router.navigate(['profile', this.id])
         this.toast.success({detail: "BERHASIL", summary:"Barang berhasil dirubah", duration: 5000});
       },
       error:()=> {
@@ -62,5 +64,7 @@ export class EditProfileComponent implements OnInit {
       }
     })
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }

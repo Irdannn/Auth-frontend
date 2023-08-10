@@ -13,6 +13,7 @@ export class UserProfile{
     role: string;
     email: string;
     bio: string;
+    avatar_id: string;
 
     constructor(){
         this.id= 0;
@@ -28,6 +29,7 @@ export class UserProfile{
         this.noHp="";
         this.role="";
         this.email="";
-        this.bio="";
+        this.bio="Tuliskan Tentang Mu";
+        this.avatar_id="";
     }
 }

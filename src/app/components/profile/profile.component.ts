@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { UserProfile } from 'src/app/models/userProfile';
+import { HttpClient } from '@angular/common/http';
+import { AvatarService } from 'src/app/services/avatar.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +15,9 @@ import { UserProfile } from 'src/app/models/userProfile';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  public users:any = [];
+  
+  public users:any;
+  public avatar:any;
   listUser: any[] = [];
   public role!:string;
   public id:string = "";
@@ -27,6 +31,7 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private route : ActivatedRoute,
+    private apiAvatar : AvatarService
     ) { }
 
 
@@ -71,6 +76,10 @@ export class ProfileComponent implements OnInit {
           })
         }
       }
+    });
+    this.apiAvatar.getAvatar(this.id)
+    .subscribe(res=>{
+      this.avatar = res;
     });
   }
   // openDialog(id:number) {
