@@ -1,10 +1,10 @@
 export class Avatar{
-    id : number;
+    id : string;
     user_id:number;
     avatar!: File;
 
     constructor(){
-        this.id= 0;
+        this.id= "";
         this.user_id=0;
     }
 }

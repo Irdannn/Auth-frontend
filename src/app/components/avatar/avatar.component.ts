@@ -31,7 +31,9 @@ export class AvatarComponent implements OnInit {
     private apiAvatar : AvatarService,
     private fb : FormBuilder,
     private router : Router,
-    private location: Location
+    private location: Location,
+    private userStore: UserStoreService,
+    private auth: AuthService
     ) { 
   }
 
@@ -52,6 +54,11 @@ export class AvatarComponent implements OnInit {
     this.updateAvatarForm = this.fb.group({
       user_id: ['', Validators.required],
       avatar: [File]
+    });
+    this.userStore.getIDFromStore()
+    .subscribe(val=>{
+      let idFromToken = this.auth.getIdFromToken()
+      this.id=val || idFromToken;
     });
   }
 

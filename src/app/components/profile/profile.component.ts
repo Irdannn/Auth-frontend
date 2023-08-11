@@ -8,6 +8,7 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { UserProfile } from 'src/app/models/userProfile';
 import { HttpClient } from '@angular/common/http';
 import { AvatarService } from 'src/app/services/avatar.service';
+import { Avatar } from 'src/app/models/avatar';
 
 @Component({
   selector: 'app-profile',
@@ -15,19 +16,22 @@ import { AvatarService } from 'src/app/services/avatar.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
+
   public users:any;
-  public avatar:any;
   listUser: any[] = [];
+
   public role!:string;
   public id:string = "";
+  public avatar_id: string = "";
+
   user:UserProfile  = new UserProfile();
+  avatar:Avatar = new Avatar();
 
   public fullName:string = "";
   constructor(
-    private api : ApiService, 
-    private auth: AuthService, 
-    private userStore: UserStoreService, 
+    private api : ApiService,
+    private auth: AuthService,
+    private userStore: UserStoreService,
     private router: Router,
     public dialog: MatDialog,
     private route : ActivatedRoute,
@@ -77,9 +81,20 @@ export class ProfileComponent implements OnInit {
         }
       }
     });
-    this.apiAvatar.getAvatar(this.id)
-    .subscribe(res=>{
-      this.avatar = res;
+    // console.log(this.avatar)
+    this.route.paramMap.subscribe({
+      next: (params) => {
+        const id = params.get('id');
+        if (id) {
+          this.api.getAvatar(id)
+          .subscribe({
+            next: (response) => {
+              this.avatar = response;
+              console.log(this.avatar)
+            }
+          })
+        }
+      }
     });
   }
   // openDialog(id:number) {
