@@ -31,14 +31,16 @@
     cursor: pointer;
 }
 
-img {
+.fotoprofil img {
     width: 15vw;
-    height: 15vw;
+    max-height: 17vw;
+    /* height: 15vw; */
     cursor: pointer;
     z-index: 1;
     position: absolute;
     top: 0;
     right: 30px;
+    border-radius: 50%;
 }
 
 .overlayProfile {
